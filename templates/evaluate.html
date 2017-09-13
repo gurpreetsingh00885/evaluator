@@ -2,18 +2,25 @@
 <html>
 <head>
 	<title>eValuate</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/evaluate.css">
 </head>
 <body>
-<hr/>
-<h2>Marks Obtained: {{marks_obtained}}/{{total_marks}}</h2>
-<hr/>
+<br>
+<br>
+<br>
+
+<center>
+<div class="marks">
+<h2>Marks Obtained: {{marks_obtained}}/{{total_marks}}</h2><br>
 
 {% for answer in answers %}
-<b>Question: {{forloop.counter}}</b><br/>{{answer.question.statement}}<br/><br/>
-<b>Your answer: </b><br/> {{answer.your_response}}<br/>
+<b>Question: {{forloop.counter}}</b><br>{{answer.question.statement}}<br/>
+<b>Your answer: </b><br/> {{answer.your_response}}<br/><br>
 <b>Max. Marks: </b> {{answer.question.marks}}<br/>
-<b>Marks obtained: </b> {{answer.marks_awarded}}<br/>
-<hr/>
+<b>Marks obtained: </b> {{answer.marks_awarded}}<br/><hr/>
 {% endfor %}
+
+</div>
+</center>
 </body>
 </html>

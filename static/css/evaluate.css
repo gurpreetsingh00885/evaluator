@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Oxygen|PT+Sans');
+
+body{
+	font-family: 'PT Sans', sans-serif;
+font-family: 'Oxygen', sans-serif;
+font-family: 'Comfortaa', cursive;
+background-color: #03A9F4;
+}
+
+.marks{
+	background: rgba(0,0,0,0.5); 
+	color: #fff; 
+	padding: 1rem;
+	width: 40%;
+	display: inline-block;
+
+}
