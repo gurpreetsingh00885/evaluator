@@ -1,0 +1,104 @@
+{% load widget_tweaks %}
+{% load evaluator_filters %}
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Information Card Slider</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'>
+
+      <link rel="stylesheet" href="/static/css/style.css">
+
+
+</head>
+
+<body>
+
+
+  <br>
+  <br>
+
+  
+<form action="/test/ocr/" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="card">
+
+
+  <div class="products">
+    {{ formset.management_form }}
+
+    {% for form in formset %}
+    <div class="product{% if forloop.counter is 1 %} active{% endif %}" product-id="{{forloop.counter}}" product-color="{{forloop.counter|get_color}}">
+      <h1 class="title">Question {{forloop.counter}}</h1>
+      <b>{{questions|get_question:forloop.counter}}</b>
+      <hr/>
+  <br>
+      {% render_field form.answer placeholder="Your answer" %}<!--textarea rows="5" cols="100" placeholder="Answer"></textarea--><br><br>
+
+
+<br>
+<br>
+
+    </div>
+    {% endfor %}
+</div>
+
+    <!--div class="product" product-id="2" product-color="#2196F3">
+
+      <h1 class="title">Question</h1>
+  <br>
+          <textarea rows="5" cols="100" placeholder="Answer"></textarea><br><br>
+
+
+
+    </div>
+    <div class="product" product-id="3" product-color="#A5AAAE">
+
+      <h1 class="title">Question</h1>
+      <br>
+        <textarea rows="5" cols="100" placeholder="Answer"></textarea><br><br>
+    </div>
+
+
+
+    <div class="product" product-id="4" product-color="#ED8D1F">
+
+            <h1 class="title">Question</h1>
+            <br>
+              <textarea rows="5" cols="100" placeholder="Answer"></textarea><br><br>
+    </div>
+    <div class="product" product-id="5" product-color="#9CCC65">
+
+            <h1 class="title">Question</h1>
+            <br>
+              <textarea rows="5" cols="100" placeholder="Answer"></textarea><br><br>
+    </div>
+
+    <div class="product" product-id="6" product-color="#EC407A">
+
+            <h1 class="title">Question</h1>
+            <br>
+              <textarea rows="5" cols="100" placeholder="Answer"></textarea><br><br>
+    </div>
+
+
+  </div-->
+
+  <div class="footer" style="float: right;"><a class="btn" id="next" href="#" ripple="" ripple-color="#666666">Next</a></div>
+</div>
+
+<center>
+<button class="button" style="vertical-align:middle"><span>Submit </span></button>
+</center>
+</form>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="/static/js/index.js"></script>
+
+</body>
+</html>
